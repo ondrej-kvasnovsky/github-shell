@@ -9,7 +9,7 @@ Use `$ help` command to get list of available commands.
 ### Authenticate
 
 You need to authenticate in order to be able to call GitHub REST API as many times as possible. 
-There is a upper limit 5000 calls per our, see [rate limits](https://developer.github.com/v3/#rate-limiting) for more information.
+There is a upper limit 5000 calls per hour, see [rate limits](https://developer.github.com/v3/#rate-limiting) for more information.
 
 ```
 $ login <username> <password>
