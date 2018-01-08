@@ -1,0 +1,3 @@
+#!/bin/bash
+APP_HOME="`pwd -P`"
+java -jar $APP_HOME/build/libs/github-shell-0.0.1.jar
