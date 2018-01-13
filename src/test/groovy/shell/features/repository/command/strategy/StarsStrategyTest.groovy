@@ -5,7 +5,6 @@ import com.blogspot.toomuchcoding.spock.subjcollabs.Subject
 import shell.features.repository.OrderBy
 import shell.features.repository.service.RepositoryService
 import spock.lang.Specification
-import spock.lang.Unroll
 
 class StarsStrategyTest extends Specification {
 

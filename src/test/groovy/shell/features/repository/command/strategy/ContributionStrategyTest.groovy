@@ -3,12 +3,10 @@ package shell.features.repository.command.strategy
 import com.blogspot.toomuchcoding.spock.subjcollabs.Collaborator
 import com.blogspot.toomuchcoding.spock.subjcollabs.Subject
 import shell.features.pullrequest.service.PullRequestService
-import shell.features.repository.OrderBy
 import shell.features.repository.model.Repository
 import shell.features.repository.service.RepositoryService
 import shell.features.repository.service.TopReposService
 import spock.lang.Specification
-import spock.lang.Unroll
 
 class ContributionStrategyTest extends Specification {
 
