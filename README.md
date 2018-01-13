@@ -1,5 +1,7 @@
 # github-shell
 
+[![Build Status](https://travis-ci.org/ondrej-kvasnovsky/github-shell.svg?branch=master)](https://travis-ci.org/ondrej-kvasnovsky/github-shell)
+
 `github-shell` is a command-line tool that allows a user to interact with a Github organization.
 
 ## Features
