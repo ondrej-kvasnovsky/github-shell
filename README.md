@@ -92,6 +92,7 @@ Java 8 is required.
 First, go into project root and build project and run tests. 
 
 ```
+$ gradle wrapper --gradle-version 4.2
 $ ./gradlew clean build
 ```
 
