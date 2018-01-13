@@ -17,11 +17,6 @@ public class ForksStrategy implements TopRepositoryStrategy {
     }
 
     @Override
-    public boolean accept(OrderBy orderBy) {
-        return orderBy.equals(OrderBy.forks);
-    }
-
-    @Override
     public List<Repository> findTopRepositories(String organization, int howMany) {
         return repositoryService.findTopRepos(organization, howMany, OrderBy.forks.name());
     }

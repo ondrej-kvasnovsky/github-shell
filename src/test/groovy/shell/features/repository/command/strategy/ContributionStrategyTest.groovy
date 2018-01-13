@@ -24,26 +24,6 @@ class ContributionStrategyTest extends Specification {
     @Collaborator
     PullRequestService pullRequestService = Mock()
 
-    def "accepts when orderBy is 'contribution'"() {
-        when:
-        boolean accepts = contributionStrategy.accept(OrderBy.contribution)
-
-        then:
-        accepts
-    }
-
-    @Unroll
-    def "refuses when orderBy is '#orderBy'"() {
-        when:
-        boolean accepts = contributionStrategy.accept(orderBy)
-
-        then:
-        !accepts
-
-        where:
-        orderBy << [OrderBy.stars, OrderBy.forks, OrderBy.pullRequests]
-    }
-
     def "uses repositoryService to find top repositories"() {
         given:
         String organization = "an-organization"

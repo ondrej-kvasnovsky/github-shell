@@ -15,26 +15,6 @@ class StarsStrategyTest extends Specification {
     @Collaborator
     RepositoryService repositoryService = Mock()
 
-    def "accepts when orderBy is 'stars'"() {
-        when:
-        boolean accepts = starsStrategy.accept(OrderBy.stars)
-
-        then:
-        accepts
-    }
-
-    @Unroll
-    def "refuses when orderBy is '#orderBy'"() {
-        when:
-        boolean accepts = starsStrategy.accept(orderBy)
-
-        then:
-        !accepts
-
-        where:
-        orderBy << [OrderBy.contribution, OrderBy.forks, OrderBy.pullRequests]
-    }
-
     def "uses repositoryService to find top repositories"() {
         when:
         starsStrategy.findTopRepositories("an-organization", 10)

@@ -23,11 +23,6 @@ public class ContributionStrategy implements TopRepositoryStrategy {
     }
 
     @Override
-    public boolean accept(OrderBy orderBy) {
-        return orderBy.equals(OrderBy.contribution);
-    }
-
-    @Override
     public List<Repository> findTopRepositories(String organization, int howMany) {
         List<Repository> allRepos = repositoryService.findRepositories(organization);
         pullRequestService.addPullRequestCounts(organization, allRepos);

@@ -2,7 +2,6 @@ package shell.features.repository.command.strategy;
 
 import org.springframework.stereotype.Component;
 import shell.features.pullrequest.service.PullRequestService;
-import shell.features.repository.OrderBy;
 import shell.features.repository.model.Repository;
 import shell.features.repository.service.RepositoryService;
 import shell.features.repository.service.TopReposService;
@@ -20,11 +19,6 @@ public class PullRequestsStrategy implements TopRepositoryStrategy {
         this.topReposService = topReposService;
         this.repositoryService = repositoryService;
         this.pullRequestService = pullRequestService;
-    }
-
-    @Override
-    public boolean accept(OrderBy orderBy) {
-        return orderBy.equals(OrderBy.pullRequests);
     }
 
     @Override

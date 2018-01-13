@@ -24,26 +24,6 @@ class PullRequestsStrategyTest extends Specification {
     @Collaborator
     PullRequestService pullRequestService = Mock()
 
-    def "accepts when orderBy is 'pullRequests'"() {
-        when:
-        boolean accepts = pullRequestsStrategy.accept(OrderBy.pullRequests)
-
-        then:
-        accepts
-    }
-
-    @Unroll
-    def "refuses when orderBy is '#orderBy'"() {
-        when:
-        boolean accepts = pullRequestsStrategy.accept(orderBy)
-
-        then:
-        !accepts
-
-        where:
-        orderBy << [OrderBy.stars, OrderBy.forks, OrderBy.contribution]
-    }
-
     def "uses repositoryService to find top repositories"() {
         given:
         String organization = "an-organization"

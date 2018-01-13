@@ -17,11 +17,6 @@ public class StarsStrategy implements TopRepositoryStrategy {
     }
 
     @Override
-    public boolean accept(OrderBy orderBy) {
-        return orderBy.equals(OrderBy.stars);
-    }
-
-    @Override
     public List<Repository> findTopRepositories(String organization, int howMany) {
         return repositoryService.findTopRepos(organization, howMany, OrderBy.stars.name());
     }

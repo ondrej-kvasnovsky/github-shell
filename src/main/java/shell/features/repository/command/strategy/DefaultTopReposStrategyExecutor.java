@@ -5,33 +5,29 @@ import shell.features.repository.OrderBy;
 import shell.features.repository.model.Repository;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class DefaultTopReposStrategyExecutor implements TopReposStrategyExecutor {
 
-    private final TopRepositoryStrategy starsStrategy;
-    private final TopRepositoryStrategy forksStrategy;
-    private final TopRepositoryStrategy pullRequestsStrategy;
-    private final TopRepositoryStrategy contributionStrategy;
+    private final Map<OrderBy, TopRepositoryStrategy> strategies = new HashMap<>();
 
     public DefaultTopReposStrategyExecutor(TopRepositoryStrategy starsStrategy,
                                            TopRepositoryStrategy forksStrategy,
                                            TopRepositoryStrategy pullRequestsStrategy,
                                            TopRepositoryStrategy contributionStrategy) {
-        this.starsStrategy = starsStrategy;
-        this.forksStrategy = forksStrategy;
-        this.pullRequestsStrategy = pullRequestsStrategy;
-        this.contributionStrategy = contributionStrategy;
+        strategies.put(OrderBy.stars, starsStrategy);
+        strategies.put(OrderBy.forks, forksStrategy);
+        strategies.put(OrderBy.pullRequests, pullRequestsStrategy);
+        strategies.put(OrderBy.contribution, contributionStrategy);
     }
 
     @Override
     public List<Repository> execute(String organization, int howMany, OrderBy orderBy) {
-        TopRepositoryStrategy[] strategies = {starsStrategy, forksStrategy, pullRequestsStrategy, contributionStrategy};
-        for (TopRepositoryStrategy topRepositoryStrategy : strategies) {
-            if (topRepositoryStrategy.accept(orderBy)) {
-                return topRepositoryStrategy.findTopRepositories(organization, howMany);
-            }
+        if (strategies.containsKey(orderBy)) {
+            return strategies.get(orderBy).findTopRepositories(organization, howMany);
         }
         return Collections.emptyList();
     }
