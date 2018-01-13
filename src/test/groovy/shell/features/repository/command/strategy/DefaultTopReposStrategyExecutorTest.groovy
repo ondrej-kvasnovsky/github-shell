@@ -25,7 +25,6 @@ class DefaultTopReposStrategyExecutorTest extends Specification {
 
     def "uses a strategy if the strategy accepts"() {
         given:
-        starsStrategy.accept(OrderBy.stars) >> true
         List<Repository> expectedRepositories = [new Repository()]
         starsStrategy.findTopRepositories("an-organization", 5) >> expectedRepositories
 
